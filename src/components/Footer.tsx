@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { SITE } from "@/lib/constants";
 
@@ -5,21 +6,21 @@ const cols = [
   {
     title: "Navigation",
     links: [
-      { href: "#top", label: "Accueil" },
-      { href: "#services", label: "Services" },
-      { href: "#fleet", label: "Flotte" },
-      { href: "#avis", label: "Avis" },
-      { href: "#faq", label: "FAQ" },
+      { href: "/", label: "Accueil" },
+      { href: "/#services", label: "Services" },
+      { href: "/#fleet", label: "Flotte" },
+      { href: "/#avis", label: "Avis" },
+      { href: "/#faq", label: "FAQ" },
     ],
   },
   {
     title: "Services",
     links: [
-      { href: "#services", label: "Transport privé" },
-      { href: "#services", label: "Conventionné CPAM" },
-      { href: "#services", label: "Taxi aéroport" },
-      { href: "#destinations", label: "Trajets populaires" },
-      { href: "#coverage", label: "Zones desservies" },
+      { href: "/taxi-medical", label: "Taxi médical CPAM" },
+      { href: "/#services", label: "Transport privé" },
+      { href: "/#services", label: "Taxi aéroport" },
+      { href: "/#destinations", label: "Trajets populaires" },
+      { href: "/#coverage", label: "Zones desservies" },
     ],
   },
 ];
@@ -30,8 +31,8 @@ export function Footer() {
       <div className="container-page py-16">
         <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
           <div>
-            <a
-              href="#top"
+            <Link
+              href="/"
               className="flex items-center gap-2 font-display text-lg font-extrabold text-ink-900"
             >
               <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-ink-900 text-white">
@@ -54,7 +55,7 @@ export function Footer() {
                 </svg>
               </span>
               Taxi <span className="text-brand-600">Montigny 95</span>
-            </a>
+            </Link>
             <p className="mt-4 max-w-sm text-sm text-ink-600">
               Votre service de taxi conventionné CPAM à Montigny-lès-Cormeilles
               & Herblay. Disponible 24h/24, 7j/7 dans tout le Val-d'Oise.
@@ -73,12 +74,12 @@ export function Footer() {
               <ul className="mt-4 space-y-2">
                 {c.links.map((l) => (
                   <li key={l.label}>
-                    <a
+                    <Link
                       href={l.href}
                       className="text-sm text-ink-600 transition hover:text-brand-700"
                     >
                       {l.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

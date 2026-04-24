@@ -158,5 +158,216 @@ export const FAQS = [
   },
 ] as const;
 
+/* ---------------------------------------------------------------------------
+ *  TAXI MÉDICAL — données dédiées à la page /taxi-medical
+ * ------------------------------------------------------------------------- */
+
+export const MEDICAL_HOSPITALS_95 = [
+  {
+    name: "Hôpital NOVO – Site de Pontoise (René-Dubos)",
+    city: "Pontoise (95)",
+    specialties: ["Cardiologie", "Dialyse", "Oncologie", "Urgences / SAMU 95"],
+    time: "≈ 25 min",
+  },
+  {
+    name: "Centre Hospitalier Victor-Dupouy",
+    city: "Argenteuil (95)",
+    specialties: ["Urgences 24/7", "Chirurgie", "Maternité", "Gériatrie"],
+    time: "≈ 15 min",
+  },
+  {
+    name: "Hôpital Simone-Veil",
+    city: "Eaubonne / Montmorency (95)",
+    specialties: ["Médecine", "Chirurgie", "Soins de suite", "Gériatrie"],
+    time: "≈ 20 min",
+  },
+  {
+    name: "CHP Sainte-Marie",
+    city: "Osny (95)",
+    specialties: ["Cancérologie", "Chimiothérapie", "Radiothérapie"],
+    time: "≈ 30 min",
+  },
+  {
+    name: "Hôpital Privé Nord-Parisien",
+    city: "Sarcelles (95)",
+    specialties: ["Oncologie", "Maternité", "Urgences gynécologiques"],
+    time: "≈ 35 min",
+  },
+  {
+    name: "Hôpital NOVO – Beaumont-sur-Oise",
+    city: "Beaumont-sur-Oise (95)",
+    specialties: ["Médecine", "Urgences", "SMR"],
+    time: "≈ 35 min",
+  },
+] as const;
+
+export const MEDICAL_HOSPITALS_PARIS = [
+  {
+    name: "Hôpital Bichat-Claude-Bernard (AP-HP)",
+    city: "Paris 18e",
+    specialties: ["Cardiologie", "Pneumologie", "Maladies infectieuses"],
+    time: "≈ 30 min",
+  },
+  {
+    name: "Hôpital Beaujon (AP-HP)",
+    city: "Clichy (92)",
+    specialties: ["Oncologie digestive", "Hépato-gastro", "Chirurgie"],
+    time: "≈ 25 min",
+  },
+  {
+    name: "Hôpital Européen Georges-Pompidou (HEGP)",
+    city: "Paris 15e",
+    specialties: ["Cardiologie", "Oncologie", "Néphrologie"],
+    time: "≈ 40 min",
+  },
+  {
+    name: "Hôpital Saint-Louis (AP-HP)",
+    city: "Paris 10e",
+    specialties: ["Hématologie", "Greffes", "Dermatologie"],
+    time: "≈ 35 min",
+  },
+  {
+    name: "Pitié-Salpêtrière (AP-HP)",
+    city: "Paris 13e",
+    specialties: ["Neurologie", "Cardiologie", "Toutes spécialités"],
+    time: "≈ 45 min",
+  },
+  {
+    name: "Hôpital Necker – Enfants Malades",
+    city: "Paris 15e",
+    specialties: ["Pédiatrie", "Maladies rares"],
+    time: "≈ 40 min",
+  },
+  {
+    name: "Hôpital Cochin (AP-HP)",
+    city: "Paris 14e",
+    specialties: ["Maternité (Port-Royal)", "Rhumatologie", "Diabétologie"],
+    time: "≈ 45 min",
+  },
+  {
+    name: "Gustave-Roussy",
+    city: "Villejuif (94)",
+    specialties: ["Cancérologie", "Radiothérapie", "Chimiothérapie"],
+    time: "≈ 55 min",
+  },
+  {
+    name: "Institut Curie",
+    city: "Paris 5e",
+    specialties: ["Cancérologie", "Sénologie", "Protonthérapie"],
+    time: "≈ 45 min",
+  },
+  {
+    name: "Hôpital Foch",
+    city: "Suresnes (92)",
+    specialties: ["Neurochirurgie", "Pneumologie", "Greffes pulmonaires"],
+    time: "≈ 25 min",
+  },
+] as const;
+
+export const MEDICAL_USE_CASES = [
+  {
+    icon: "Droplets",
+    title: "Dialyse",
+    description:
+      "Trajets récurrents (2 à 3 fois par semaine) vers les centres de néphrologie. Même chauffeur possible, ponctualité garantie.",
+  },
+  {
+    icon: "Activity",
+    title: "Chimiothérapie & Radiothérapie",
+    description:
+      "Transfert vers Gustave-Roussy, Institut Curie, CHP Sainte-Marie, Hôpital Nord-Parisien… Confort et discrétion assurés.",
+  },
+  {
+    icon: "Stethoscope",
+    title: "Consultations spécialistes",
+    description:
+      "Cardiologie, oncologie, ophtalmologie, endocrinologie : accompagnement aux consultations CHU, cliniques et cabinets.",
+  },
+  {
+    icon: "Building2",
+    title: "Hôpital de jour & examens",
+    description:
+      "IRM, scanner, bilan pré-op, hospitalisation de jour. Nous attendons la fin de l'examen pour votre retour.",
+  },
+  {
+    icon: "BedDouble",
+    title: "Sortie d'hospitalisation",
+    description:
+      "Sortie programmée ou de dernière minute. Aide à l'installation dans le véhicule et retour en toute sécurité à domicile.",
+  },
+  {
+    icon: "Accessibility",
+    title: "Transport PMR & Seniors",
+    description:
+      "Véhicule adapté, aide à la marche, patience et écoute. Accompagnement jusqu'au service hospitalier si besoin.",
+  },
+] as const;
+
+export const MEDICAL_DOCUMENTS = [
+  {
+    title: "Prescription Médicale de Transport (PMT)",
+    hint: "Cerfa n°11574*05 remis par votre médecin, spécialiste ou hôpital.",
+  },
+  {
+    title: "Carte Vitale à jour",
+    hint: "Ou attestation de droits avec numéro de Sécurité Sociale.",
+  },
+  {
+    title: "Carte de mutuelle complémentaire",
+    hint: "Pour la prise en charge des 10 % restants si votre mutuelle le prévoit.",
+  },
+  {
+    title: "Pièce d'identité",
+    hint: "Carte d'identité, passeport ou titre de séjour en cours de validité.",
+  },
+] as const;
+
+export const MEDICAL_ELIGIBILITY = [
+  "Patients en Affection Longue Durée (ALD)",
+  "Accidents du travail & maladies professionnelles",
+  "Maternité & transports néonataux",
+  "Patients à mobilité réduite (PMR)",
+  "Transports vers un centre de convocation CPAM",
+  "Sorties d'hospitalisation (court & moyen séjour)",
+] as const;
+
+export const MEDICAL_FAQS = [
+  {
+    q: "Qu'est-ce qu'un taxi conventionné CPAM ?",
+    a: "C'est un taxi agréé par la Sécurité Sociale pour transporter des patients dont les trajets sont pris en charge par l'Assurance Maladie. Nous sommes conventionnés CPAM dans le Val-d'Oise (95) et appliquons le tiers payant : vous n'avancez rien sur présentation d'une prescription médicale de transport valide.",
+  },
+  {
+    q: "Comment obtenir une prescription médicale de transport ?",
+    a: "Elle est délivrée par votre médecin traitant, votre spécialiste ou le service hospitalier (Cerfa n°11574*05). Elle précise le motif, la date, le mode de transport prescrit (taxi conventionné) et, si besoin, le caractère répétitif des trajets (dialyse, chimio, radiothérapie).",
+  },
+  {
+    q: "Qui peut bénéficier d'un taxi médical remboursé ?",
+    a: "Les patients en ALD, les accidents du travail / maladies professionnelles, les femmes enceintes (dans le cadre de la maternité), les patients à mobilité réduite, les mineurs convoqués par le service médical, et toute personne dont l'état de santé justifie un transport assis professionnalisé, prescrit par un médecin.",
+  },
+  {
+    q: "Quels hôpitaux desservez-vous depuis Herblay et Montigny-lès-Cormeilles ?",
+    a: "Tous les hôpitaux du Val-d'Oise (NOVO Pontoise, Victor-Dupouy Argenteuil, Simone-Veil Eaubonne, CHP Sainte-Marie Osny, Nord-Parisien Sarcelles…) et l'ensemble des établissements AP-HP de Paris et banlieue (Bichat, HEGP, Pitié-Salpêtrière, Cochin, Necker, Saint-Louis, Gustave-Roussy, Curie, Foch…).",
+  },
+  {
+    q: "Le trajet est-il vraiment à 0 € pour le patient ?",
+    a: "Oui, avec une prescription valide, nous appliquons le tiers payant direct avec la CPAM et votre mutuelle. Vous n'avancez aucun frais. Dans de rares cas (franchise médicale de 4 € par trajet, plafonnée à 50 €/an), une participation forfaitaire peut s'appliquer, conformément à la réglementation.",
+  },
+  {
+    q: "Puis-je réserver le même chauffeur pour mes dialyses ou ma chimiothérapie ?",
+    a: "Absolument. Pour les trajets récurrents (dialyse 3x/semaine, séances de chimio ou de radiothérapie), nous organisons un planning fixe avec le même chauffeur autant que possible. Cela rassure le patient et garantit la ponctualité pour chaque rendez-vous.",
+  },
+  {
+    q: "Acceptez-vous les patients à mobilité réduite (PMR) ?",
+    a: "Oui. Notre van 8 places est adapté aux passagers PMR. Le chauffeur vous aide à l'installation, au port du bagage médical, et peut vous accompagner jusqu'à l'accueil du service hospitalier si vous le souhaitez.",
+  },
+  {
+    q: "Êtes-vous disponibles la nuit, le week-end et les jours fériés ?",
+    a: "Oui, le service de taxi médical est disponible 24h/24 et 7j/7, y compris les week-ends et jours fériés. Pour les dialyses matinales ou les sorties d'hospitalisation imprévues, il suffit d'appeler le 07 63 08 96 95.",
+  },
+] as const;
+
 export type Service = (typeof SERVICES)[number];
 export type Testimonial = (typeof TESTIMONIALS)[number];
+export type MedicalHospital = (typeof MEDICAL_HOSPITALS_95)[number];
+export type MedicalUseCase = (typeof MEDICAL_USE_CASES)[number];
+export type MedicalFAQ = (typeof MEDICAL_FAQS)[number];

@@ -2,16 +2,23 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Menu, Phone, X } from "lucide-react";
+import { HeartPulse, Menu, Phone, X } from "lucide-react";
 import { SITE } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
-const links = [
-  { href: "#services", label: "Services" },
-  { href: "#fleet", label: "Flotte" },
-  { href: "#coverage", label: "Zones" },
-  { href: "#avis", label: "Avis" },
-  { href: "#faq", label: "FAQ" },
+type NavLink = {
+  href: string;
+  label: string;
+  highlight?: boolean;
+};
+
+const links: NavLink[] = [
+  { href: "/#services", label: "Services" },
+  { href: "/taxi-medical", label: "Taxi médical", highlight: true },
+  { href: "/#fleet", label: "Flotte" },
+  { href: "/#coverage", label: "Zones" },
+  { href: "/#avis", label: "Avis" },
+  { href: "/#faq", label: "FAQ" },
 ];
 
 export function Header() {
@@ -56,15 +63,26 @@ export function Header() {
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="rounded-full px-4 py-2 text-sm font-medium text-ink-600 transition hover:bg-ink-100 hover:text-ink-900"
-            >
-              {l.label}
-            </a>
-          ))}
+          {links.map((l) =>
+            l.highlight ? (
+              <Link
+                key={l.href}
+                href={l.href}
+                className="inline-flex items-center gap-1.5 rounded-full border border-brand-500/30 bg-brand-50 px-4 py-2 text-sm font-semibold text-brand-700 transition hover:border-brand-500 hover:bg-brand-100"
+              >
+                <HeartPulse size={14} />
+                {l.label}
+              </Link>
+            ) : (
+              <Link
+                key={l.href}
+                href={l.href}
+                className="rounded-full px-4 py-2 text-sm font-medium text-ink-600 transition hover:bg-ink-100 hover:text-ink-900"
+              >
+                {l.label}
+              </Link>
+            )
+          )}
         </nav>
 
         <div className="flex items-center gap-2 sm:gap-3">
@@ -75,9 +93,9 @@ export function Header() {
             <Phone size={16} className="text-brand-600" />
             {SITE.phone}
           </a>
-          <a href="#reserver" className="btn-primary hidden sm:inline-flex">
+          <Link href="/#reserver" className="btn-primary hidden sm:inline-flex">
             Réserver
-          </a>
+          </Link>
 
           <button
             type="button"
@@ -104,14 +122,27 @@ export function Header() {
           <div className="container-page py-6">
             <nav className="flex flex-col gap-1">
               {links.map((l) => (
-                <a
+                <Link
                   key={l.href}
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className="rounded-xl px-4 py-3 text-base font-semibold text-ink-900 transition hover:bg-ink-100"
+                  className={cn(
+                    "flex items-center justify-between rounded-xl px-4 py-3 text-base font-semibold transition",
+                    l.highlight
+                      ? "bg-brand-50 text-brand-700 hover:bg-brand-100"
+                      : "text-ink-900 hover:bg-ink-100"
+                  )}
                 >
-                  {l.label}
-                </a>
+                  <span className="flex items-center gap-2">
+                    {l.highlight && <HeartPulse size={16} />}
+                    {l.label}
+                  </span>
+                  {l.highlight && (
+                    <span className="rounded-full bg-brand-500 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white">
+                      CPAM
+                    </span>
+                  )}
+                </Link>
               ))}
             </nav>
             <div className="mt-4 grid grid-cols-2 gap-3">
@@ -122,13 +153,13 @@ export function Header() {
               >
                 <Phone size={16} /> Appeler
               </a>
-              <a
-                href="#reserver"
+              <Link
+                href="/#reserver"
                 className="btn-primary"
                 onClick={() => setOpen(false)}
               >
                 Réserver
-              </a>
+              </Link>
             </div>
           </div>
         </div>
