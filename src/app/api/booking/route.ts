@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 
 export const runtime = "nodejs";
 
+const DEFAULT_FORMSPREE_ENDPOINT = "https://formspree.io/f/mnnokwja";
+
 type Payload = {
   pickup: string;
   dropoff: string;
@@ -14,6 +16,12 @@ type Payload = {
   tripType: string;
 };
 
+const TRIP_LABELS: Record<string, string> = {
+  privee: "Course privée",
+  cpam: "Taxi médical CPAM",
+  aeroport: "Aéroport / Gare",
+};
+
 export async function POST(request: Request) {
   let body: Payload;
   try {
@@ -22,7 +30,14 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
   }
 
-  const required = ["pickup", "dropoff", "date", "time", "phone", "name"] as const;
+  const required = [
+    "pickup",
+    "dropoff",
+    "date",
+    "time",
+    "phone",
+    "name",
+  ] as const;
   for (const key of required) {
     if (!body[key]) {
       return NextResponse.json(
@@ -32,26 +47,47 @@ export async function POST(request: Request) {
     }
   }
 
-  // Optional : forward to Formspree if an endpoint is configured
-  const formspree = process.env.FORMSPREE_ENDPOINT;
-  if (formspree) {
-    try {
-      await fetch(formspree, {
-        method: "POST",
-        headers: { Accept: "application/json", "Content-Type": "application/json" },
-        body: JSON.stringify({
-          _subject: `Nouvelle réservation taxi — ${body.tripType}`,
-          ...body,
-        }),
-      });
-    } catch (e) {
-      // swallow – the user still sees success
-      console.error("Formspree forward failed", e);
+  const endpoint = process.env.FORMSPREE_ENDPOINT || DEFAULT_FORMSPREE_ENDPOINT;
+  const tripLabel = TRIP_LABELS[body.tripType] ?? body.tripType;
+
+  try {
+    const res = await fetch(endpoint, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        _subject: `Nouvelle réservation taxi — ${tripLabel}`,
+        _replyto: body.phone,
+        type_de_course: tripLabel,
+        nom: body.name,
+        telephone: body.phone,
+        depart: body.pickup,
+        destination: body.dropoff,
+        date: body.date,
+        heure: body.time,
+        passagers: body.passengers,
+        precisions: body.notes ?? "",
+      }),
+    });
+
+    if (!res.ok) {
+      console.error("[booking] Formspree returned", res.status, await res.text());
+      return NextResponse.json(
+        { error: "Impossible d'envoyer la réservation. Merci d'appeler le 07 63 08 96 95." },
+        { status: 502 }
+      );
     }
+  } catch (e) {
+    console.error("[booking] Formspree forward failed", e);
+    return NextResponse.json(
+      { error: "Serveur injoignable. Appelez directement le 07 63 08 96 95." },
+      { status: 502 }
+    );
   }
 
-  // Always log for Vercel / server logs
-  console.log("[booking]", body);
+  console.log("[booking]", { tripLabel, name: body.name, phone: body.phone });
 
   return NextResponse.json({ ok: true });
 }
