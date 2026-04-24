@@ -11,14 +11,13 @@ import { FAQ } from "@/components/FAQ";
 import { FinalCTA } from "@/components/FinalCTA";
 import { Footer } from "@/components/Footer";
 import { FloatingCTA } from "@/components/FloatingCTA";
-import { LiveBookingToast } from "@/components/LiveBookingToast";
 
 export default function HomePage() {
   return (
     <>
       <a
         href="#reserver"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-gold-400 focus:px-4 focus:py-2 focus:font-semibold focus:text-navy-900"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-brand-500 focus:px-4 focus:py-2 focus:font-semibold focus:text-white"
       >
         Aller à la réservation
       </a>
@@ -37,7 +36,6 @@ export default function HomePage() {
       </main>
       <Footer />
       <FloatingCTA />
-      <LiveBookingToast />
     </>
   );
 }
