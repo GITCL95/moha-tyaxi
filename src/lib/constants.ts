@@ -87,8 +87,7 @@ export const FLEET = [
     capacity: "1 – 4 passagers",
     luggage: "3 bagages",
     features: ["Clim individuelle", "Wi-Fi 4G offert", "Eau minérale", "Chargeur USB-C"],
-    image:
-      "https://images.unsplash.com/photo-1549924231-f129b911e442?auto=format&fit=crop&w=1600&q=80",
+    image: "/fleet/berline-premium.png",
   },
   {
     name: "Van Spacieux 8 places",
