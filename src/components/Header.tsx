@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { HeartPulse, Menu, Phone, X } from "lucide-react";
 import { SITE } from "@/lib/constants";
@@ -51,15 +52,17 @@ export function Header() {
       <div className="container-page flex h-20 items-center justify-between">
         <Link
           href="/"
-          className="flex items-center gap-2 font-display text-lg font-extrabold tracking-tight text-ink-900"
-          aria-label="Accueil"
+          aria-label="Accueil — Taxi Montigny-lès-Cormeilles"
+          className="relative flex items-center"
         >
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-ink-900 text-white shadow-card">
-            <LogoMark />
-          </span>
-          <span className="hidden sm:block">
-            Taxi <span className="text-brand-600">Montigny 95</span>
-          </span>
+          <Image
+            src="/logo-header.png"
+            alt="Taxi Montigny-lès-Cormeilles"
+            width={220}
+            height={290}
+            priority
+            className="h-12 w-auto sm:h-14"
+          />
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">
@@ -168,24 +171,3 @@ export function Header() {
   );
 }
 
-function LogoMark() {
-  return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-    >
-      <path d="M14 16H9a2 2 0 0 0-2 2v2h10v-2a2 2 0 0 0-2-2Z" />
-      <path d="M5 11V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4" />
-      <path d="M3 13h18" />
-      <circle cx="7.5" cy="14.5" r="1" />
-      <circle cx="16.5" cy="14.5" r="1" />
-    </svg>
-  );
-}
