@@ -31,15 +31,15 @@ export function Fleet() {
               transition={{ duration: 0.6, delay: i * 0.1 }}
               className="group relative overflow-hidden rounded-3xl border border-ink-200 bg-white shadow-card"
             >
-              <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-ink-800 to-ink-950">
+              <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-ink-50 via-white to-ink-100">
                 <Image
                   src={v.image}
                   alt={v.name}
                   fill
                   sizes="(min-width: 768px) 50vw, 100vw"
-                  className="object-contain p-4 transition duration-700 group-hover:scale-105"
+                  className="object-contain p-6 transition duration-700 group-hover:scale-105"
                 />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-950/40 via-transparent to-transparent" />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-ink-900/10 to-transparent" />
                 <div className="absolute left-5 top-5 flex gap-2">
                   <span className="inline-flex items-center gap-1 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-ink-900 shadow-card backdrop-blur">
                     <Users size={14} className="text-brand-600" />
