@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { SITE } from "@/lib/constants";
@@ -33,30 +34,19 @@ export function Footer() {
           <div>
             <Link
               href="/"
-              className="flex items-center gap-2 font-display text-lg font-extrabold text-ink-900"
+              aria-label="Accueil — Taxi Montigny-lès-Cormeilles"
+              className="inline-block"
             >
-              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-ink-900 text-white">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden
-                >
-                  <path d="M14 16H9a2 2 0 0 0-2 2v2h10v-2a2 2 0 0 0-2-2Z" />
-                  <path d="M5 11V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4" />
-                  <path d="M3 13h18" />
-                  <circle cx="7.5" cy="14.5" r="1" />
-                  <circle cx="16.5" cy="14.5" r="1" />
-                </svg>
-              </span>
-              Taxi <span className="text-brand-600">Montigny 95</span>
+              <Image
+                src="/logo.png"
+                alt="Logo Taxi Montigny-lès-Cormeilles — Conventionné CPAM"
+                width={220}
+                height={290}
+                className="h-auto w-[180px] sm:w-[210px]"
+                priority={false}
+              />
             </Link>
-            <p className="mt-4 max-w-sm text-sm text-ink-600">
+            <p className="mt-5 max-w-sm text-sm text-ink-600">
               Votre service de taxi conventionné CPAM à Montigny-lès-Cormeilles
               & Herblay. Disponible 24h/24, 7j/7 dans tout le Val-d'Oise.
             </p>
