@@ -96,8 +96,7 @@ export const FLEET = [
     capacity: "1 – 8 passagers",
     luggage: "8 bagages",
     features: ["Accès PMR", "Sièges enfants", "Climatisation auto", "Grand coffre"],
-    image:
-      "https://images.unsplash.com/photo-1609520505218-7421df17de59?auto=format&fit=crop&w=1600&q=80",
+    image: "/fleet/van-spacieux.png",
   },
 ] as const;
 
