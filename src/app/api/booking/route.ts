@@ -59,7 +59,6 @@ export async function POST(request: Request) {
       },
       body: JSON.stringify({
         _subject: `Nouvelle réservation taxi — ${tripLabel}`,
-        _replyto: body.phone,
         type_de_course: tripLabel,
         nom: body.name,
         telephone: body.phone,
