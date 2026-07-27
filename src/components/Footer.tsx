@@ -26,7 +26,11 @@ const cols = [
   },
 ];
 
-export function Footer() {
+interface FooterProps {
+  showCreator?: boolean;
+}
+
+export function Footer({ showCreator = false }: FooterProps = {}) {
   return (
     <footer className="relative border-t border-ink-200 bg-white">
       <div className="container-page py-16">
@@ -114,17 +118,19 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()} {SITE.name}. Tous droits réservés.
           </p>
-          <p>
-            Ce site a été créé par{" "}
-            <a
-              href="https://www.alizee-web.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold text-ink-600 hover:text-brand-700 underline transition-colors"
-            >
-              Alizée Web
-            </a>
-          </p>
+          {showCreator && (
+            <p>
+              Ce site a été créé par{" "}
+              <a
+                href="https://www.alizee-web.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-ink-600 hover:text-brand-700 underline transition-colors"
+              >
+                Alizée Web
+              </a>
+            </p>
+          )}
           <p>
             Conventionné CPAM · Val-d'Oise (95) · Artisan Taxi Licencié
           </p>

@@ -34,7 +34,7 @@ export default function HomePage() {
         <FAQ />
         <FinalCTA />
       </main>
-      <Footer />
+      <Footer showCreator={true} />
       <FloatingCTA />
     </>
   );
